@@ -22,6 +22,10 @@
             android:name=".Conversa"
             android:label="@string/title_activity_conversa"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <fragment android:name=".FragmentSwapper"
+            android:id="@+id/fragment_place"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
     </application>
 
 </manifest>
