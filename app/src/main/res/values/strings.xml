@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Kartero</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_settings">Configurações</string>
+    <string name="enviar">Enviar</string>
+    <string-array name="listaContatos">
+        <item>Pedro</item>
+        <item>Gabriel</item>
+        <item>Matheus</item>
+    </string-array>
+    <string name="title_activity_conversa">Conversa</string>
+
+</resources>
