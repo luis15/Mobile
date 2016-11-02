@@ -21,11 +21,18 @@
         <activity
             android:name=".Conversa"
             android:label="@string/title_activity_conversa"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <fragment android:name=".FragmentSwapper"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <fragment
             android:id="@+id/fragment_place"
+            android:name=".FragmentSwapper"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
+
+        <activity
+            android:name=".msgGeral"
+            android:label="@string/title_activity_main2"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

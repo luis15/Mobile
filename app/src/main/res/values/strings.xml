@@ -10,5 +10,10 @@
         <item>Matheus</item>
     </string-array>
     <string name="title_activity_conversa">Conversa</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="hint">Fale com o mundo!</string>
+    <string name="geral">Enviar mensagem para todos</string>
+
+
 
 </resources>
