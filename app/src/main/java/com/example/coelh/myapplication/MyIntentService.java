@@ -1,4 +1,4 @@
-package com.example.l156435_p107855.servicos;
+package com.example.coelh.myapplication;
 
 import android.app.IntentService;
 import android.app.Notification;
@@ -15,6 +15,8 @@ import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
+
+import com.example.coelh.myapplication.MainActivity;
 
 /**
  * An {@link IntentService} subclass for handling asynchronous task requests in
@@ -42,16 +44,9 @@ public class MyIntentService extends IntentService {
 
     @Override
     protected void onHandleIntent(Intent intent) {
-        synchronized (this){
-            try {
-                wait(10000);
-            }catch (InterruptedException e){
-                e.printStackTrace();
-            }
-            String text = intent.getStringExtra("message");
-            //SendMessage(text);
-            SendBroadcast(text);
-        }
+        String text = intent.getStringExtra("message");
+        SendMessage(text);
+        //SendBroadcast(text);
     }
 
     public void SendMessage(final String text){
@@ -63,23 +58,22 @@ public class MyIntentService extends IntentService {
                 Toast.makeText(getApplicationContext(), text, Toast.LENGTH_LONG).show();
             }
         });
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, msgGeral.class);
         TaskStackBuilder stackBuilder =  TaskStackBuilder.create(this);
-        stackBuilder.addParentStack(MainActivity.class);
+        stackBuilder.addParentStack(msgGeral.class);
         stackBuilder.addNextIntent(intent);
 
         PendingIntent pendingIntent = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT );
 
         Notification notification = new Notification.Builder(this)
-                .setSmallIcon(R.mipmap.ic_launcher)
-                .setContentTitle("Título da Mensagem")
+                .setContentTitle(text)
                 .setAutoCancel(true)
                 .setDefaults(Notification.DEFAULT_VIBRATE)
                 .setContentIntent(pendingIntent)
                 .setContentText(text)
                 .build();
         NotificationManager notificationManager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
-        notificationManager.notify(1234, notification);
+        notificationManager.notify(4321, notification);
 
     }
 
@@ -88,8 +82,6 @@ public class MyIntentService extends IntentService {
         Intent in = new Intent("MyIntentServiceBroadcast");
         in.putExtra("message", text);
         LocalBroadcastManager.getInstance(this).sendBroadcast(in);
-
-
     }
     public class MyBinder extends Binder{
         MyIntentService getMyIntentService(){
